@@ -1,1 +1,1042 @@
-<html>hello<html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steady Days | A Well-Being Page</title>
+  <meta name="description" content="A calm well-being page for a friend serving in the South Korean military.">
+  <style>
+    :root {
+      --ink: #17201b;
+      --muted: #627064;
+      --paper: #f7faf5;
+      --panel: #ffffff;
+      --line: #dce5dc;
+      --moss: #3f6b4f;
+      --moss-dark: #244732;
+      --blue: #2f64ad;
+      --coral: #c94d3f;
+      --gold: #c28a25;
+      --shadow: 0 18px 55px rgba(23, 32, 27, 0.13);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      letter-spacing: 0;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      min-height: 78vh;
+      position: relative;
+      display: grid;
+      align-items: center;
+      isolation: isolate;
+      color: #fff;
+      background: #1f2f28;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(18, 28, 23, 0.88) 0%, rgba(18, 28, 23, 0.58) 38%, rgba(18, 28, 23, 0.16) 72%),
+        linear-gradient(180deg, rgba(18, 28, 23, 0.28) 0%, rgba(18, 28, 23, 0.24) 74%, rgba(247, 250, 245, 0.9) 100%),
+        url("assets/hero-morning.png") center / cover no-repeat;
+    }
+
+    .topbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 20px clamp(18px, 5vw, 64px);
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: conic-gradient(from 90deg, var(--coral) 0 50%, var(--blue) 0 100%);
+      box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.9);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .nav a {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      background: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 104px 0 66px;
+    }
+
+    .hero-copy {
+      max-width: 690px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 16px;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 11ch;
+      margin-bottom: 20px;
+      font-size: clamp(3.1rem, 8vw, 6.9rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .hero-copy p {
+      max-width: 590px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(1.05rem, 2vw, 1.27rem);
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 800;
+      line-height: 1.1;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .button.primary {
+      color: #102018;
+      background: #ffffff;
+    }
+
+    .button.secondary {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.42);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .button.green {
+      color: #fff;
+      background: var(--moss);
+    }
+
+    .button.green:hover,
+    .button.green:focus-visible {
+      background: var(--moss-dark);
+    }
+
+    .button.light {
+      color: var(--ink);
+      border-color: var(--line);
+      background: #fff;
+    }
+
+    .main {
+      position: relative;
+      z-index: 1;
+      margin-top: -38px;
+    }
+
+    .section {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 54px 0;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .panel-pad {
+      padding: clamp(20px, 3vw, 30px);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin-bottom: 6px;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .time-chip {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--moss-dark);
+      background: #fff;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .breath-layout {
+      display: grid;
+      grid-template-columns: minmax(210px, 0.72fr) 1fr;
+      gap: clamp(22px, 5vw, 44px);
+      align-items: center;
+    }
+
+    .breath-orb {
+      width: min(260px, 100%);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+      border: 1px solid rgba(63, 107, 79, 0.22);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.98) 0 34%, rgba(228, 239, 229, 0.95) 35% 58%, rgba(63, 107, 79, 0.2) 59% 100%);
+      box-shadow: inset 0 0 0 18px rgba(255, 255, 255, 0.5), 0 20px 50px rgba(36, 71, 50, 0.16);
+      transform: scale(0.82);
+      transition: transform 1s ease-in-out;
+    }
+
+    .breath-orb.active.inhale {
+      transform: scale(1);
+    }
+
+    .breath-orb.active.hold {
+      transform: scale(1);
+    }
+
+    .breath-orb.active.exhale {
+      transform: scale(0.76);
+    }
+
+    .breath-count {
+      display: grid;
+      place-items: center;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--moss);
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .breath-count strong {
+      display: block;
+      font-size: 2.9rem;
+      line-height: 1;
+    }
+
+    .breath-count span {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .breath-copy h2 {
+      margin-bottom: 12px;
+      font-size: clamp(1.85rem, 4vw, 3.05rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .breath-copy p {
+      max-width: 560px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .breath-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .status-line {
+      min-height: 24px;
+      margin: 14px 0 0;
+      color: var(--moss-dark);
+      font-weight: 800;
+    }
+
+    .mood-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .mood-button {
+      min-height: 72px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      color: var(--ink);
+      background: #fff;
+      text-align: left;
+      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .mood-button:hover,
+    .mood-button:focus-visible,
+    .mood-button[aria-pressed="true"] {
+      border-color: rgba(63, 107, 79, 0.6);
+      box-shadow: 0 10px 28px rgba(23, 32, 27, 0.1);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .mood-button b {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1.02rem;
+    }
+
+    .mood-button span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .mood-result {
+      min-height: 92px;
+      margin-top: 16px;
+      border-left: 4px solid var(--blue);
+      padding: 14px 16px;
+      background: #f2f6fb;
+      color: #233851;
+      line-height: 1.5;
+    }
+
+    .split-band {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .note-area {
+      width: 100%;
+      min-height: 230px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.55;
+    }
+
+    .note-area:focus {
+      border-color: var(--moss);
+      outline: 3px solid rgba(63, 107, 79, 0.16);
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .text-field {
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 11px 13px;
+      background: #fff;
+    }
+
+    .text-field:focus {
+      border-color: var(--moss);
+      outline: 3px solid rgba(63, 107, 79, 0.16);
+    }
+
+    .note-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .mini-status {
+      min-height: 24px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .idea-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .idea-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: #fff;
+    }
+
+    .idea-item input {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--moss);
+    }
+
+    .idea-item b {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .idea-item span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.42;
+    }
+
+    .quote-band {
+      margin: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .quote-inner {
+      width: min(1120px, calc(100% - 36px));
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      margin: 0 auto;
+      padding: 34px 0;
+    }
+
+    .quote-inner p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .quote-inner strong {
+      color: var(--ink);
+    }
+
+    .progress-ring {
+      width: 106px;
+      height: 106px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: conic-gradient(var(--coral) 0 34%, var(--blue) 34% 67%, var(--moss) 67% 100%);
+      box-shadow: 0 14px 32px rgba(23, 32, 27, 0.14);
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .progress-ring span {
+      display: grid;
+      place-items: center;
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: var(--ink);
+      line-height: 1.05;
+    }
+
+    .footer {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 34px 0 44px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        min-height: 82vh;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(18, 28, 23, 0.86) 0%, rgba(18, 28, 23, 0.64) 46%, rgba(18, 28, 23, 0.2) 100%),
+          url("assets/hero-morning.png") center / cover no-repeat;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero-inner {
+        padding-top: 160px;
+      }
+
+      h1 {
+        max-width: 9ch;
+      }
+
+      .quick-grid,
+      .breath-layout,
+      .split-band,
+      .quote-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .time-chip {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 84vh;
+      }
+
+      .hero-inner,
+      .section,
+      .quote-inner,
+      .footer {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav a {
+        padding: 7px 10px;
+        font-size: 0.88rem;
+      }
+
+      .hero-copy p {
+        line-height: 1.55;
+      }
+
+      .hero-actions,
+      .breath-controls,
+      .note-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .mood-grid,
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-pad {
+        padding: 18px;
+      }
+
+      .breath-count {
+        width: 98px;
+        height: 98px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="hero">
+      <div class="topbar" aria-label="Site header">
+        <a class="brand" href="#top" aria-label="Steady Days home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Steady Days</span>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#reset">Reset</a>
+          <a href="#mood">Mood</a>
+          <a href="#message">Message</a>
+          <a href="#care">Care</a>
+        </nav>
+      </div>
+
+      <div class="hero-inner" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">For service days far from home</p>
+          <h1>Keep him steady.</h1>
+          <p>A private, simple place for calm breathing, honest check-ins, and small notes of support while your friend serves in the South Korean military.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#reset">Start reset</a>
+            <a class="button secondary" href="#message">Write a note</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="section" id="reset" aria-labelledby="reset-title">
+        <div class="quick-grid">
+          <div class="panel panel-pad">
+            <div class="breath-layout">
+              <div class="breath-orb" id="breathOrb" aria-hidden="true">
+                <div class="breath-count">
+                  <div>
+                    <strong id="breathNumber">60</strong>
+                    <span>seconds</span>
+                  </div>
+                </div>
+              </div>
+              <div class="breath-copy">
+                <p class="eyebrow" style="color: var(--moss-dark);">Daily reset</p>
+                <h2 id="reset-title">One quiet minute.</h2>
+                <p id="breathPhrase">Let the next minute be smaller than the whole day.</p>
+                <div class="breath-controls">
+                  <button class="button green" type="button" id="startBreath">Start</button>
+                  <button class="button light" type="button" id="pauseBreath">Pause</button>
+                  <button class="button light" type="button" id="resetBreath">Reset</button>
+                </div>
+                <p class="status-line" id="breathStatus" aria-live="polite">Ready when you are.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="panel panel-pad" id="mood" aria-labelledby="mood-title">
+            <div class="section-head">
+              <div>
+                <h2 id="mood-title">Mood check</h2>
+                <p>Pick what fits right now.</p>
+              </div>
+              <div class="time-chip" id="koreaTime">Korea time</div>
+            </div>
+            <div class="mood-grid" role="group" aria-label="Mood choices">
+              <button class="mood-button" type="button" data-mood="steady" aria-pressed="false">
+                <b>Steady</b>
+                <span>Keep the rhythm simple.</span>
+              </button>
+              <button class="mood-button" type="button" data-mood="tired" aria-pressed="false">
+                <b>Tired</b>
+                <span>Lower the load.</span>
+              </button>
+              <button class="mood-button" type="button" data-mood="homesick" aria-pressed="false">
+                <b>Homesick</b>
+                <span>Make home feel close.</span>
+              </button>
+              <button class="mood-button" type="button" data-mood="stressed" aria-pressed="false">
+                <b>Stressed</b>
+                <span>Return to one next step.</span>
+              </button>
+            </div>
+            <div class="mood-result" id="moodResult" aria-live="polite">No need to perform today. Just mark the moment and move with care.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="quote-band" aria-label="Support note">
+        <div class="quote-inner">
+          <p><strong>Small contact counts.</strong> A short message, a familiar photo, or a clear reminder that life at home still includes him can carry more weight than a long speech.</p>
+          <div class="progress-ring" aria-hidden="true"><span>Home<br>Link</span></div>
+        </div>
+      </section>
+
+      <section class="section split-band" id="message" aria-labelledby="message-title">
+        <div class="panel panel-pad">
+          <div class="section-head">
+            <div>
+              <h2 id="message-title">Message builder</h2>
+              <p>Keep it real, short, and easy to receive.</p>
+            </div>
+          </div>
+          <div class="field-row">
+            <input class="text-field" id="friendName" type="text" autocomplete="off" placeholder="Friend's name" aria-label="Friend's name">
+            <input class="text-field" id="senderName" type="text" autocomplete="off" placeholder="Your name" aria-label="Your name">
+          </div>
+          <textarea class="note-area" id="noteText" aria-label="Support message">Hey, I was thinking about you today.
+
+I hope you get one calm moment, one good meal, and one reason to laugh.
+
+You are not forgotten here. I am proud of how you are handling this.</textarea>
+          <div class="note-actions">
+            <button class="button green" type="button" id="copyNote">Copy note</button>
+            <button class="button light" type="button" id="saveNote">Save draft</button>
+            <button class="button light" type="button" id="fillNote">Fresh note</button>
+            <span class="mini-status" id="noteStatus" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <aside class="panel panel-pad" id="care" aria-labelledby="care-title">
+          <div class="section-head">
+            <div>
+              <h2 id="care-title">Care ideas</h2>
+              <p>Useful support stays practical.</p>
+            </div>
+          </div>
+          <ul class="idea-list">
+            <li class="idea-item">
+              <input type="checkbox" id="idea-water" data-idea="water">
+              <label for="idea-water">
+                <b>Water and electrolytes</b>
+                <span>Packable, simple, and useful after long training days.</span>
+              </label>
+            </li>
+            <li class="idea-item">
+              <input type="checkbox" id="idea-photos" data-idea="photos">
+              <label for="idea-photos">
+                <b>Printed photos</b>
+                <span>Small enough to keep, strong enough to feel close.</span>
+              </label>
+            </li>
+            <li class="idea-item">
+              <input type="checkbox" id="idea-socks" data-idea="socks">
+              <label for="idea-socks">
+                <b>Good socks</b>
+                <span>A boring gift that becomes useful fast.</span>
+              </label>
+            </li>
+            <li class="idea-item">
+              <input type="checkbox" id="idea-routine" data-idea="routine">
+              <label for="idea-routine">
+                <b>Weekly check-in</b>
+                <span>Same day, same warmth, no pressure to reply.</span>
+              </label>
+            </li>
+          </ul>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer">
+      This page is for ordinary support and connection. If your friend is in immediate danger or may hurt himself, contact emergency services or his unit support channel right away.
+    </footer>
+  </div>
+
+  <script>
+    const storage = {
+      get(key, fallback) {
+        try {
+          return JSON.parse(localStorage.getItem(key)) ?? fallback;
+        } catch {
+          return fallback;
+        }
+      },
+      set(key, value) {
+        localStorage.setItem(key, JSON.stringify(value));
+      }
+    };
+
+    const breathOrb = document.querySelector("#breathOrb");
+    const breathNumber = document.querySelector("#breathNumber");
+    const breathStatus = document.querySelector("#breathStatus");
+    const breathPhrase = document.querySelector("#breathPhrase");
+    const startBreath = document.querySelector("#startBreath");
+    const pauseBreath = document.querySelector("#pauseBreath");
+    const resetBreath = document.querySelector("#resetBreath");
+    let breathTimer = null;
+    let breathRemaining = 60;
+
+    const breathCycle = [
+      { name: "inhale", label: "Inhale slowly.", phrase: "Fill the lungs without rushing." },
+      { name: "hold", label: "Hold gently.", phrase: "Let the body catch up." },
+      { name: "exhale", label: "Exhale longer.", phrase: "Release the extra weight." }
+    ];
+
+    function setBreathState() {
+      const elapsed = 60 - breathRemaining;
+      const step = breathCycle[Math.floor((elapsed % 12) / 4)];
+      breathOrb.className = "breath-orb active " + step.name;
+      breathStatus.textContent = step.label;
+      breathPhrase.textContent = step.phrase;
+      breathNumber.textContent = String(breathRemaining);
+    }
+
+    function stopBreath(message) {
+      clearInterval(breathTimer);
+      breathTimer = null;
+      breathOrb.className = "breath-orb";
+      breathStatus.textContent = message;
+    }
+
+    startBreath.addEventListener("click", () => {
+      if (breathTimer) return;
+      setBreathState();
+      breathTimer = setInterval(() => {
+        breathRemaining -= 1;
+        if (breathRemaining <= 0) {
+          breathRemaining = 60;
+          breathNumber.textContent = "60";
+          breathPhrase.textContent = "Take the next thing one step at a time.";
+          stopBreath("Reset complete.");
+          return;
+        }
+        setBreathState();
+      }, 1000);
+    });
+
+    pauseBreath.addEventListener("click", () => {
+      stopBreath("Paused.");
+    });
+
+    resetBreath.addEventListener("click", () => {
+      breathRemaining = 60;
+      breathNumber.textContent = "60";
+      breathPhrase.textContent = "Let the next minute be smaller than the whole day.";
+      stopBreath("Ready when you are.");
+    });
+
+    const moodMessages = {
+      steady: "Keep the routine small: eat, hydrate, sleep, reply when possible. Steady is enough.",
+      tired: "Cut the list down. A shower, water, and rest are valid wins today.",
+      homesick: "Send or save one familiar thing: a photo, a voice note, a song, or a memory.",
+      stressed: "Name one next action. Do that first. The rest can wait its turn."
+    };
+
+    const moodResult = document.querySelector("#moodResult");
+    const moodButtons = document.querySelectorAll(".mood-button");
+
+    function chooseMood(mood) {
+      moodButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.mood === mood));
+      });
+      moodResult.textContent = moodMessages[mood];
+      storage.set("steadyDaysMood", { mood, date: new Date().toISOString() });
+    }
+
+    moodButtons.forEach((button) => {
+      button.addEventListener("click", () => chooseMood(button.dataset.mood));
+    });
+
+    const savedMood = storage.get("steadyDaysMood", null);
+    if (savedMood?.mood && moodMessages[savedMood.mood]) {
+      chooseMood(savedMood.mood);
+    }
+
+    const koreaTime = document.querySelector("#koreaTime");
+    function updateKoreaTime() {
+      const time = new Intl.DateTimeFormat("en-US", {
+        timeZone: "Asia/Seoul",
+        hour: "numeric",
+        minute: "2-digit",
+        weekday: "short"
+      }).format(new Date());
+      koreaTime.textContent = "Korea: " + time;
+    }
+    updateKoreaTime();
+    setInterval(updateKoreaTime, 30000);
+
+    const friendName = document.querySelector("#friendName");
+    const senderName = document.querySelector("#senderName");
+    const noteText = document.querySelector("#noteText");
+    const noteStatus = document.querySelector("#noteStatus");
+    const savedNote = storage.get("steadyDaysNote", null);
+
+    if (savedNote) {
+      friendName.value = savedNote.friendName || "";
+      senderName.value = savedNote.senderName || "";
+      noteText.value = savedNote.noteText || noteText.value;
+    }
+
+    function fullNote() {
+      const friend = friendName.value.trim();
+      const sender = senderName.value.trim();
+      const greeting = friend ? friend + "," : "Hey,";
+      const signoff = sender ? "\n\n- " + sender : "";
+      return greeting + "\n\n" + noteText.value.trim() + signoff;
+    }
+
+    document.querySelector("#copyNote").addEventListener("click", async () => {
+      const note = fullNote();
+      try {
+        await navigator.clipboard.writeText(note);
+        noteStatus.textContent = "Copied.";
+      } catch {
+        noteText.focus();
+        noteText.select();
+        document.execCommand("copy");
+        noteStatus.textContent = "Copied.";
+      }
+    });
+
+    document.querySelector("#saveNote").addEventListener("click", () => {
+      storage.set("steadyDaysNote", {
+        friendName: friendName.value,
+        senderName: senderName.value,
+        noteText: noteText.value
+      });
+      noteStatus.textContent = "Saved in this browser.";
+    });
+
+    const freshNotes = [
+      "I hope something small goes your way today.\n\nYou do not have to be strong every minute. Just keep going at a human pace.",
+      "No big speech today. Just this: I am thinking about you, and I am glad you are my friend.",
+      "When the day feels long, I hope you remember there are people waiting to hear your stories when you are back."
+    ];
+
+    document.querySelector("#fillNote").addEventListener("click", () => {
+      const next = freshNotes[Math.floor(Math.random() * freshNotes.length)];
+      noteText.value = next;
+      noteStatus.textContent = "Fresh note added.";
+    });
+
+    const checkedIdeas = storage.get("steadyDaysIdeas", {});
+    document.querySelectorAll("[data-idea]").forEach((checkbox) => {
+      checkbox.checked = Boolean(checkedIdeas[checkbox.dataset.idea]);
+      checkbox.addEventListener("change", () => {
+        checkedIdeas[checkbox.dataset.idea] = checkbox.checked;
+        storage.set("steadyDaysIdeas", checkedIdeas);
+      });
+    });
+  </script>
+</body>
+</html>
