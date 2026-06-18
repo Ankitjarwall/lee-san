@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Operation: Come Back Stronger - a funny farewell and good-luck mission website." />
+  <title>Operation: Come Back Stronger 🫡</title>
+  <style>
+:root {
+  --bg: #0d1021;
+  --card: rgba(255, 255, 255, 0.1);
+  --card-strong: rgba(255, 255, 255, 0.16);
+  --text: #fff7e8;
+  --muted: #d9d0bd;
+  --accent: #ffcf5a;
+  --accent-2: #ff7a90;
+  --accent-3: #78f0c2;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  --radius: 28px;
+  --max: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 207, 90, 0.28), transparent 30%),
+    radial-gradient(circle at 85% 10%, rgba(120, 240, 194, 0.22), transparent 28%),
+    radial-gradient(circle at 50% 85%, rgba(255, 122, 144, 0.22), transparent 30%),
+    var(--bg);
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 90%);
+}
+a { color: inherit; }
+.language-gate {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.language-box {
+  width: min(720px, 100%);
+  border-radius: 34px;
+  padding: clamp(24px, 5vw, 44px);
+  background: linear-gradient(145deg, rgba(255,255,255,0.17), rgba(255,255,255,0.08));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.language-box .emoji {
+  font-size: clamp(3.6rem, 12vw, 6rem);
+  line-height: 1;
+  margin-bottom: 16px;
+  display: block;
+}
+.language-box h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 7vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+.language-box p {
+  color: var(--muted);
+  margin: 16px auto 28px;
+  max-width: 520px;
+  line-height: 1.65;
+  font-size: 1.06rem;
+}
+.language-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.language-btn {
+  min-height: 96px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--text);
+  padding: 16px;
+  display: grid;
+  gap: 6px;
+  text-decoration: none;
+  align-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.language-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 207, 90, 0.18);
+}
+.language-btn strong { font-size: 1.15rem; }
+.language-btn span { color: var(--muted); font-size: 0.9rem; }
+.site { display: none; }
+.site:target { display: block; }
+.container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(16px);
+  background: rgba(13, 16, 33, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.nav-inner {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  font-size: 1.05rem;
+}
+.change-link {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.14);
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+.change-link:hover { background: rgba(255, 255, 255, 0.09); color: var(--text); }
+.hero {
+  min-height: calc(100vh - 64px);
+  display: grid;
+  place-items: center;
+  padding: 70px 0;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 34px;
+}
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 18px;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 7.7rem);
+  line-height: 0.88;
+  letter-spacing: -0.08em;
+}
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent), #ffffff 42%, var(--accent-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-copy {
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.65;
+  max-width: 650px;
+  margin: 24px 0 0;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+button, .btn {
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.98rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+button:hover, .btn:hover { transform: translateY(-2px); }
+.btn-primary {
+  background: var(--accent);
+  color: #201405;
+  box-shadow: 0 16px 40px rgba(255, 207, 90, 0.22);
+}
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.mission-card {
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, rgba(255,255,255,0.16), rgba(255,255,255,0.07));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--shadow);
+  padding: 26px;
+  overflow: hidden;
+}
+.mission-card::before {
+  content: "";
+  position: absolute;
+  inset: -80px -120px auto auto;
+  width: 220px;
+  aspect-ratio: 1;
+  background: rgba(255, 207, 90, 0.25);
+  border-radius: 999px;
+  filter: blur(8px);
+  z-index: -1;
+}
+.avatar {
+  width: 136px;
+  height: 136px;
+  display: grid;
+  place-items: center;
+  margin: 10px auto 18px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, #fff 0 9%, transparent 10%),
+    linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #251306;
+  font-size: 4.5rem;
+  box-shadow: inset 0 -14px 28px rgba(0,0,0,0.18), 0 20px 40px rgba(0,0,0,0.25);
+  user-select: none;
+}
+.mission-card h2 {
+  text-align: center;
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: -0.04em;
+}
+.status-pill {
+  width: fit-content;
+  margin: 12px auto 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(120, 240, 194, 0.16);
+  color: var(--accent-3);
+  font-weight: 900;
+  font-size: 0.86rem;
+}
+section { padding: 84px 0; }
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 26px;
+}
+.section-head h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+.section-head p {
+  margin: 0;
+  max-width: 520px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.grid { display: grid; gap: 18px; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card {
+  border-radius: 24px;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 22px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+}
+.profile-table { display: grid; gap: 10px; }
+.profile-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+}
+.profile-row strong { color: var(--accent); }
+.message-card {
+  min-height: 176px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.from {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.from strong { font-size: 1.03rem; }
+.tag {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 207, 90, 0.14);
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+.message-card p {
+  color: var(--muted);
+  line-height: 1.62;
+  margin: 0;
+}
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.checklist li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 15px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 800;
+}
+.loading-box { padding: 28px; }
+.progress-wrap {
+  height: 24px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 18px 0 12px;
+}
+.progress {
+  width: 1%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+  animation: loadMission 4s ease-in-out infinite alternate;
+}
+@keyframes loadMission {
+  from { width: 1%; }
+  to { width: 72%; }
+}
+.status-line { color: var(--muted); margin: 0; line-height: 1.6; }
+.badges { display: flex; flex-wrap: wrap; gap: 12px; }
+.badge {
+  padding: 13px 15px;
+  border-radius: 999px;
+  background: var(--card-strong);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  font-weight: 900;
+}
+.motivation-box {
+  display: grid;
+  gap: 18px;
+  text-align: center;
+  align-content: center;
+  min-height: 260px;
+  background: linear-gradient(135deg, rgba(255,207,90,0.16), rgba(120,240,194,0.09));
+}
+.quote {
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 950;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
+.memory {
+  min-height: 210px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-style: dashed;
+}
+.memory span {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 10px;
+}
+.waiting {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+}
+.big-salute {
+  font-size: 5rem;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.25));
+  transition: transform 0.15s ease;
+}
+.big-salute:active { transform: rotate(-10deg) scale(0.92); }
+.secret {
+  display: none;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(120, 240, 194, 0.15);
+  border: 1px solid rgba(120, 240, 194, 0.32);
+  color: var(--accent-3);
+  font-weight: 950;
+}
+.secret.show {
+  display: block;
+  animation: pop 0.4s ease;
+}
+@keyframes pop {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+footer {
+  padding: 72px 0 90px;
+  text-align: center;
+}
+footer .final-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 34px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(255,207,90,0.18), rgba(255,255,255,0.08));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: var(--shadow);
+}
+footer h2 {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -0.07em;
+  line-height: 1;
+}
+footer p {
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+.tiny {
+  margin-top: 22px;
+  color: rgba(255, 247, 232, 0.55);
+  font-size: 0.88rem;
+}
+@media (max-width: 900px) {
+  .hero-grid, .grid-2, .grid-3, .waiting, .language-options { grid-template-columns: 1fr; }
+  .hero { min-height: auto; }
+  .section-head { display: block; }
+  .section-head p { margin-top: 14px; }
+  .mission-card { order: -1; }
+}
+@media (max-width: 560px) {
+  .container { width: min(100% - 22px, var(--max)); }
+  section { padding: 58px 0; }
+  .hero { padding: 42px 0 58px; }
+  .hero-actions { flex-direction: column; }
+  button, .btn { width: 100%; }
+  .profile-row { grid-template-columns: 1fr; }
+  .card { padding: 18px; border-radius: 20px; }
+  .avatar { width: 112px; height: 112px; font-size: 3.7rem; }
+  .message-card { min-height: auto; }
+}
+</style>
+</head>
+<body>
+  <section class="language-gate" id="language">
+    <div class="language-box">
+      <span class="emoji">🫡</span>
+      <h1>Select Language</h1>
+      <p>Please choose your language before starting the mission.</p>
+      <div class="language-options">
+        <a class="language-btn" href="#site-ja"><strong>日本語</strong><span>Japanese</span></a>
+<a class="language-btn" href="#site-ko"><strong>한국어</strong><span>Korean</span></a>
+<a class="language-btn" href="#site-en"><strong>English</strong><span>English</span></a>
+      </div>
+    </div>
+  </section>
+
+  
+  <div class="site" id="site-en" lang="en">
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="brand">Operation Stronger 🫡</div>
+        <a class="change-link" href="#language">Change Language</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="kicker">🚨 Mission briefing unlocked</div>
+            <h1>Operation:<br><span class="gradient-text">Come Back Stronger</span> 🫡</h1>
+            <p class="hero-copy">Salute! Mission accepted. Come back stronger, healthier, and with the same smile. Your juniors are watching your legendary comeback arc.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#site-en">Start Mission 🚀</a>
+              <button class="btn-secondary motivationBtn" type="button">Give Me Motivation</button>
+            </div>
+          </div>
+
+          <div class="mission-card">
+            <div class="avatar saluteEmoji" title="Click 10 times">🫡</div>
+            <h2>Senior Legend</h2>
+            <div class="status-pill">STATUS: TEMPORARILY TOO POWERFUL</div>
+            <p class="hero-copy" style="text-align:center; margin-bottom:0;">Current version: Strong.<br>Next version: Stronger 2.0.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>Mission Profile</h2>
+            <p>A completely official, totally serious, 100% scientifically verified profile.</p>
+          </div>
+          <div class="card">
+            <div class="profile-table">
+              <div class="profile-row"><strong>Name</strong><span>Senior Legend</span></div>
+<div class="profile-row"><strong>Rank</strong><span>Smile Commander</span></div>
+<div class="profile-row"><strong>Special Skill</strong><span>Surviving anything with style</span></div>
+<div class="profile-row"><strong>Weakness</strong><span>Friends saying emotional things</span></div>
+<div class="profile-row"><strong>Mission</strong><span>Come back healthy and stronger</span></div>
+<div class="profile-row"><strong>Support Team</strong><span>Juniors + friends + unlimited salutes</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>Message Wall</h2>
+            <p>Small messages. Big emotional damage. Maximum respect.</p>
+          </div>
+          <div class="grid grid-3">
+            <article class="card message-card">
+          <div>
+            <div class="from"><strong>From Ankit</strong><span class="tag">EN</span></div>
+            <p>Salute! Come back stronger, but please bring back your smile too lol. Don’t get hurt and come back healthy. Good luck! ❤️<br><br>Your junior, Ankit, salutes you 🫡😂</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>From Everyone</strong><span class="tag">MISSION</span></div>
+            <p>Health first. Hero entry later. Come back stronger or we will officially complain.</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>Support Team</strong><span class="tag">HWAITING</span></div>
+            <p>You can do it. Even your juniors believe in you. That means the pressure is real.</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>Secret Department</strong><span class="tag">TOP SECRET</span></div>
+            <p>Your smile is required for final mission completion. Returning without it is not allowed.</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>Comeback Office</strong><span class="tag">UPDATE</span></div>
+            <p>Current status: temporarily unavailable. Expected return: stronger, cooler, and slightly more legendary.</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>Final Warning</strong><span class="tag">IMPORTANT</span></div>
+            <p>Don’t forget us after becoming too cool. We have screenshots, memories, and emotional blackmail ready.</p>
+          </div>
+        </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container grid grid-2">
+          <div>
+            <div class="section-head"><h2>Survival Checklist</h2></div>
+            <div class="card"><ul class="checklist"><li><span>Smile packed?</span><span>✅</span></li>
+<li><span>Health packed?</span><span>✅</span></li>
+<li><span>Courage packed?</span><span>✅</span></li>
+<li><span>Snacks hidden somewhere?</span><span>✅</span></li>
+<li><span>Comeback promise confirmed?</span><span>✅</span></li>
+<li><span>Injuries allowed?</span><span>❌ Absolutely not</span></li></ul></div>
+          </div>
+          <div>
+            <div class="section-head"><h2>Comeback Loading</h2></div>
+            <div class="card loading-box">
+              <strong>Legendary Comeback Loading…</strong>
+              <div class="progress-wrap"><div class="progress"></div></div>
+              <p class="status-line">Status: training hard, becoming stronger, and preparing a dramatic comeback scene.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>Achievement Badges</h2>
+            <p>Unlocked by being respected, missed, and slightly bullied with love.</p>
+          </div>
+          <div class="badges"><div class="badge">🫡 Salute Master</div>
+<div class="badge">💪 Strength Upgrade Pending</div>
+<div class="badge">😂 Smile Must Return</div>
+<div class="badge">🏆 Main Character Energy</div>
+<div class="badge">❤️ Protected by Juniors</div>
+<div class="badge">🚫 No Injury Allowed</div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>Random Motivation</h2>
+            <p>Press the button whenever motivation battery becomes low.</p>
+          </div>
+          <div class="card motivation-box">
+            <p class="quote">“You can do it. Even your juniors believe in you.”</p>
+            <button class="btn-primary motivationBtn" type="button">Give me motivation ⚡</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>Memories</h2>
+            <p>Add photos later here. For now, the placeholder is doing emotional support duty.</p>
+          </div>
+          <div class="grid grid-3"><div class="card memory"><div><span>📸</span><strong>Group Photo</strong><p class="status-line">Add a happy memory here.</p></div></div>
+<div class="card memory"><div><span>😂</span><strong>Funny Moment</strong><p class="status-line">This smile must be returned safely.</p></div></div>
+<div class="card memory"><div><span>🏆</span><strong>Best Moment</strong><p class="status-line">Legend status: confirmed.</p></div></div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="card waiting">
+            <div>
+              <h2 style="margin:0 0 12px; font-size:clamp(2rem,4vw,3.4rem); letter-spacing:-0.06em;">Waiting For Your Comeback</h2>
+              <p class="status-line">Until then, this website will keep saluting you. Stay healthy, don’t get hurt, and return as the upgraded version.</p>
+              <div class="secret">Secret unlocked: Ankit has saluted 999 times. Respect increased. 🫡</div>
+            </div>
+            <div class="big-salute bigSalute" title="Click 10 times to unlock secret">🫡</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="final-card">
+          <h2>Final Salute 🫡</h2>
+          <p>Don’t get hurt. Stay healthy. Come back stronger. We’ll be waiting for your legendary return.</p>
+          <div class="tiny">Made with respect, jokes, and emotional damage.</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <div class="site" id="site-ja" lang="ja">
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="brand">強くなって帰還作戦 🫡</div>
+        <a class="change-link" href="#language">言語を変更</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="kicker">🚨 ミッション説明が解除されました</div>
+            <h1>作戦：<br><span class="gradient-text">もっと強くなって帰還</span> 🫡</h1>
+            <p class="hero-copy">敬礼！ミッション開始です。もっと強く、もっと健康に、そして同じ笑顔で帰ってきてください。後輩たちはあなたの伝説の復帰編を見守っています。</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#site-ja">ミッション開始 🚀</a>
+              <button class="btn-secondary motivationBtn" type="button">応援メッセージを見る</button>
+            </div>
+          </div>
+
+          <div class="mission-card">
+            <div class="avatar saluteEmoji" title="Click 10 times">🫡</div>
+            <h2>伝説の先輩</h2>
+            <div class="status-pill">状態：一時的に強すぎます</div>
+            <p class="hero-copy" style="text-align:center; margin-bottom:0;">現在バージョン：強い<br>次回バージョン：もっと強い 2.0</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>ミッションプロフィール</h2>
+            <p>完全に公式で、とても真面目で、100%科学的に確認されたプロフィールです。</p>
+          </div>
+          <div class="card">
+            <div class="profile-table">
+              <div class="profile-row"><strong>名前</strong><span>伝説の先輩</span></div>
+<div class="profile-row"><strong>ランク</strong><span>スマイル司令官</span></div>
+<div class="profile-row"><strong>特殊能力</strong><span>どんな状況でもかっこよく生き残る</span></div>
+<div class="profile-row"><strong>弱点</strong><span>友達からの感動メッセージ</span></div>
+<div class="profile-row"><strong>ミッション</strong><span>健康で、もっと強くなって帰ってくる</span></div>
+<div class="profile-row"><strong>応援チーム</strong><span>後輩＋友達＋無限の敬礼</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>メッセージウォール</h2>
+            <p>短いメッセージ。でも感情ダメージは大きめ。尊敬は最大級。</p>
+          </div>
+          <div class="grid grid-3">
+            <article class="card message-card">
+          <div>
+            <div class="from"><strong>Ankitより</strong><span class="tag">JP</span></div>
+            <p>敬礼！もっと強くなって帰ってきてください。でも笑顔も必ず持って帰ってきてくださいね（笑）。けがをせず、健康に帰ってきてください。頑張ってください！❤️<br><br>後輩のAnkitが敬礼します 🫡😂</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>みんなより</strong><span class="tag">MISSION</span></div>
+            <p>健康第一。ヒーロー登場はその後です。もっと強くなって帰ってこないと、正式に文句を言います。</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>応援チーム</strong><span class="tag">HWAITING</span></div>
+            <p>あなたならできます。後輩たちも信じています。つまり、プレッシャーは本物です。</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>秘密部署</strong><span class="tag">TOP SECRET</span></div>
+            <p>最終ミッション完了には、あなたの笑顔が必要です。笑顔なしでの帰還は禁止です。</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>帰還オフィス</strong><span class="tag">UPDATE</span></div>
+            <p>現在の状態：一時的に不在。帰還予定：もっと強く、もっとかっこよく、少し伝説的に。</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>最終警告</strong><span class="tag">IMPORTANT</span></div>
+            <p>かっこよくなりすぎても、私たちを忘れないでください。スクショ、思い出、感情的な脅しの準備はできています。</p>
+          </div>
+        </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container grid grid-2">
+          <div>
+            <div class="section-head"><h2>サバイバルチェックリスト</h2></div>
+            <div class="card"><ul class="checklist"><li><span>笑顔は持った？</span><span>✅</span></li>
+<li><span>健康は持った？</span><span>✅</span></li>
+<li><span>勇気は持った？</span><span>✅</span></li>
+<li><span>お菓子はどこかに隠した？</span><span>✅</span></li>
+<li><span>帰還の約束は確認済み？</span><span>✅</span></li>
+<li><span>けがは許可されていますか？</span><span>❌ 絶対にダメ</span></li></ul></div>
+          </div>
+          <div>
+            <div class="section-head"><h2>帰還ロード中</h2></div>
+            <div class="card loading-box">
+              <strong>伝説の帰還ロード中…</strong>
+              <div class="progress-wrap"><div class="progress"></div></div>
+              <p class="status-line">状態：一生懸命トレーニング中。もっと強くなり、ドラマチックな帰還シーンを準備中。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>達成バッジ</h2>
+            <p>尊敬され、寂しがられ、愛を込めて少しいじられることで解除されます。</p>
+          </div>
+          <div class="badges"><div class="badge">🫡 敬礼マスター</div>
+<div class="badge">💪 強さアップグレード待ち</div>
+<div class="badge">😂 笑顔は必ず返却</div>
+<div class="badge">🏆 主人公オーラ</div>
+<div class="badge">❤️ 後輩に守られています</div>
+<div class="badge">🚫 けが禁止</div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>ランダム応援</h2>
+            <p>やる気バッテリーが少なくなったら、このボタンを押してください。</p>
+          </div>
+          <div class="card motivation-box">
+            <p class="quote">“あなたならできます。後輩たちも信じています。”</p>
+            <button class="btn-primary motivationBtn" type="button">応援をください ⚡</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>思い出</h2>
+            <p>写真はあとで追加できます。今はこのプレースホルダーが感情サポート中です。</p>
+          </div>
+          <div class="grid grid-3"><div class="card memory"><div><span>📸</span><strong>集合写真</strong><p class="status-line">ここに楽しい思い出を追加してください。</p></div></div>
+<div class="card memory"><div><span>😂</span><strong>面白い瞬間</strong><p class="status-line">この笑顔は必ず安全に返却してください。</p></div></div>
+<div class="card memory"><div><span>🏆</span><strong>最高の瞬間</strong><p class="status-line">伝説ステータス：確認済み。</p></div></div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="card waiting">
+            <div>
+              <h2 style="margin:0 0 12px; font-size:clamp(2rem,4vw,3.4rem); letter-spacing:-0.06em;">あなたの帰還を待っています</h2>
+              <p class="status-line">それまで、このサイトはずっと敬礼し続けます。健康で、けがをせず、アップグレード版として帰ってきてください。</p>
+              <div class="secret">秘密解除：Ankitは999回敬礼しました。尊敬度が上がりました。🫡</div>
+            </div>
+            <div class="big-salute bigSalute" title="Click 10 times to unlock secret">🫡</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="final-card">
+          <h2>最後の敬礼 🫡</h2>
+          <p>けがをしないでください。健康でいてください。もっと強くなって帰ってきてください。伝説の帰還を待っています。</p>
+          <div class="tiny">尊敬、ジョーク、そして感情ダメージで作られました。</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <div class="site" id="site-ko" lang="ko">
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="brand">더 강해져서 돌아오기 작전 🫡</div>
+        <a class="change-link" href="#language">언어 변경</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="kicker">🚨 미션 브리핑 잠금 해제</div>
+            <h1>작전:<br><span class="gradient-text">더 강해져서 돌아오기</span> 🫡</h1>
+            <p class="hero-copy">충성! 미션 접수 완료. 더 강하고, 더 건강하고, 같은 미소로 돌아오세요. 후배들이 당신의 전설적인 복귀편을 지켜보고 있습니다.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#site-ko">미션 시작 🚀</a>
+              <button class="btn-secondary motivationBtn" type="button">응원 받기</button>
+            </div>
+          </div>
+
+          <div class="mission-card">
+            <div class="avatar saluteEmoji" title="Click 10 times">🫡</div>
+            <h2>전설의 선배</h2>
+            <div class="status-pill">상태: 일시적으로 너무 강함</div>
+            <p class="hero-copy" style="text-align:center; margin-bottom:0;">현재 버전: 강함<br>다음 버전: 더 강함 2.0</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>미션 프로필</h2>
+            <p>완전히 공식적이고, 매우 진지하며, 100% 과학적으로 검증된 프로필입니다.</p>
+          </div>
+          <div class="card">
+            <div class="profile-table">
+              <div class="profile-row"><strong>이름</strong><span>전설의 선배</span></div>
+<div class="profile-row"><strong>랭크</strong><span>스마일 사령관</span></div>
+<div class="profile-row"><strong>특수 능력</strong><span>어떤 상황에서도 멋있게 살아남기</span></div>
+<div class="profile-row"><strong>약점</strong><span>친구들의 감동 메시지</span></div>
+<div class="profile-row"><strong>미션</strong><span>건강하고 더 강해져서 돌아오기</span></div>
+<div class="profile-row"><strong>응원팀</strong><span>후배들 + 친구들 + 무한 경례</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>메시지 월</h2>
+            <p>짧은 메시지. 큰 감동 데미지. 최대 존경.</p>
+          </div>
+          <div class="grid grid-3">
+            <article class="card message-card">
+          <div>
+            <div class="from"><strong>Ankit이</strong><span class="tag">KO</span></div>
+            <p>충성! 더 강해져서 돌아오세요. 근데 웃는 얼굴도 꼭 가져오세요 ㅋㅋ 다치지 말고 건강하게 돌아오세요. 화이팅! ❤️<br><br>후배 Ankit이 경례드립니다 🫡😂</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>모두가</strong><span class="tag">MISSION</span></div>
+            <p>건강이 먼저입니다. 히어로 등장은 그다음입니다. 더 강해져서 돌아오지 않으면 공식적으로 항의하겠습니다.</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>응원팀</strong><span class="tag">HWAITING</span></div>
+            <p>할 수 있습니다. 후배들도 믿고 있습니다. 즉, 압박감은 진짜입니다.</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>비밀 부서</strong><span class="tag">TOP SECRET</span></div>
+            <p>최종 미션 완료에는 당신의 미소가 필요합니다. 미소 없이 복귀하는 것은 금지입니다.</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>복귀 사무소</strong><span class="tag">UPDATE</span></div>
+            <p>현재 상태: 일시적으로 이용 불가. 예상 복귀: 더 강하고, 더 멋지고, 조금 더 전설적으로.</p>
+          </div>
+        </article>
+<article class="card message-card">
+          <div>
+            <div class="from"><strong>최종 경고</strong><span class="tag">IMPORTANT</span></div>
+            <p>너무 멋있어져도 우리를 잊지 마세요. 스크린샷, 추억, 감정적인 협박 준비 완료입니다.</p>
+          </div>
+        </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container grid grid-2">
+          <div>
+            <div class="section-head"><h2>생존 체크리스트</h2></div>
+            <div class="card"><ul class="checklist"><li><span>미소 챙겼나요?</span><span>✅</span></li>
+<li><span>건강 챙겼나요?</span><span>✅</span></li>
+<li><span>용기 챙겼나요?</span><span>✅</span></li>
+<li><span>간식은 어딘가에 숨겼나요?</span><span>✅</span></li>
+<li><span>복귀 약속 확인했나요?</span><span>✅</span></li>
+<li><span>부상 허용?</span><span>❌ 절대 안 됨</span></li></ul></div>
+          </div>
+          <div>
+            <div class="section-head"><h2>복귀 로딩 중</h2></div>
+            <div class="card loading-box">
+              <strong>전설의 복귀 로딩 중…</strong>
+              <div class="progress-wrap"><div class="progress"></div></div>
+              <p class="status-line">상태: 열심히 훈련 중. 더 강해지고, 드라마틱한 복귀 장면을 준비 중입니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>업적 배지</h2>
+            <p>존경받고, 그리워지고, 사랑으로 살짝 놀림받으면 해제됩니다.</p>
+          </div>
+          <div class="badges"><div class="badge">🫡 경례 마스터</div>
+<div class="badge">💪 힘 업그레이드 대기 중</div>
+<div class="badge">😂 미소는 반드시 반환</div>
+<div class="badge">🏆 주인공 에너지</div>
+<div class="badge">❤️ 후배들이 보호 중</div>
+<div class="badge">🚫 부상 금지</div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>랜덤 응원</h2>
+            <p>동기 배터리가 부족할 때 이 버튼을 누르세요.</p>
+          </div>
+          <div class="card motivation-box">
+            <p class="quote">“할 수 있습니다. 후배들도 믿고 있습니다.”</p>
+            <button class="btn-primary motivationBtn" type="button">응원 주세요 ⚡</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>추억</h2>
+            <p>사진은 나중에 추가할 수 있습니다. 지금은 이 공간이 감정 지원 임무를 수행 중입니다.</p>
+          </div>
+          <div class="grid grid-3"><div class="card memory"><div><span>📸</span><strong>단체 사진</strong><p class="status-line">여기에 행복한 추억을 추가하세요.</p></div></div>
+<div class="card memory"><div><span>😂</span><strong>웃긴 순간</strong><p class="status-line">이 미소는 반드시 안전하게 돌아와야 합니다.</p></div></div>
+<div class="card memory"><div><span>🏆</span><strong>최고의 순간</strong><p class="status-line">전설 상태: 확인 완료.</p></div></div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="card waiting">
+            <div>
+              <h2 style="margin:0 0 12px; font-size:clamp(2rem,4vw,3.4rem); letter-spacing:-0.06em;">당신의 복귀를 기다리는 중</h2>
+              <p class="status-line">그때까지 이 웹사이트는 계속 경례하겠습니다. 건강하게, 다치지 말고, 업그레이드 버전으로 돌아오세요.</p>
+              <div class="secret">비밀 해제: Ankit이 999번 경례했습니다. 존경도가 상승했습니다. 🫡</div>
+            </div>
+            <div class="big-salute bigSalute" title="Click 10 times to unlock secret">🫡</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="final-card">
+          <h2>마지막 경례 🫡</h2>
+          <p>다치지 마세요. 건강하세요. 더 강해져서 돌아오세요. 전설적인 복귀를 기다리고 있겠습니다.</p>
+          <div class="tiny">존경, 농담, 그리고 감동 데미지로 제작되었습니다.</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <script>
+    const siteData = {"en": {"quotes": ["You can do it. Even your juniors believe in you.", "Come back stronger or we will complain.", "Health first. Hero entry later.", "Your smile is required for final mission completion.", "Don’t forget us after becoming too cool.", "Mission difficulty: hard. Main character energy: unlimited.", "No injury allowed. This is not a request. It is an order.", "Strong today. Stronger tomorrow. Legendary after comeback."], "secret_quote": "Secret unlocked: Respect level is now over 9000.", "page_title": "Operation: Come Back Stronger 🫡"}, "ja": {"quotes": ["あなたならできます。後輩たちも信じています。", "もっと強くなって帰ってこないと文句を言います。", "健康第一。ヒーロー登場はその後です。", "最終ミッション完了には、あなたの笑顔が必要です。", "かっこよくなりすぎても、私たちを忘れないでください。", "ミッション難易度：高い。主人公オーラ：無限。", "けがは禁止です。これはお願いではなく命令です。", "今日は強い。明日はもっと強い。帰還後は伝説です。"], "secret_quote": "秘密解除：尊敬レベルが9000を超えました。", "page_title": "作戦：もっと強くなって帰還 🫡"}, "ko": {"quotes": ["할 수 있습니다. 후배들도 믿고 있습니다.", "더 강해져서 돌아오지 않으면 항의하겠습니다.", "건강이 먼저입니다. 히어로 등장은 그다음입니다.", "최종 미션 완료에는 당신의 미소가 필요합니다.", "너무 멋있어져도 우리를 잊지 마세요.", "미션 난이도: 어려움. 주인공 에너지: 무한.", "부상 금지입니다. 부탁이 아니라 명령입니다.", "오늘은 강함. 내일은 더 강함. 복귀 후에는 전설."], "secret_quote": "비밀 해제: 존경 레벨이 9000을 넘었습니다.", "page_title": "작전: 더 강해져서 돌아오기 🫡"}};
+
+    function getLangFromSite(site) {
+      return site.id.replace("site-", "");
+    }
+
+    window.addEventListener("hashchange", () => {
+      const hash = location.hash.replace("#site-", "");
+      if (siteData[hash]) {
+        document.title = siteData[hash].page_title;
+        document.documentElement.lang = hash;
+      }
+    });
+
+    document.querySelectorAll(".site").forEach((site) => {
+      const lang = getLangFromSite(site);
+      let saluteCount = 0;
+
+      site.querySelectorAll(".motivationBtn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const quotes = siteData[lang].quotes;
+          const quote = quotes[Math.floor(Math.random() * quotes.length)];
+          const quoteBox = site.querySelector(".quote");
+          if (quoteBox) quoteBox.textContent = "“" + quote + "”";
+        });
+      });
+
+      site.querySelectorAll(".bigSalute, .saluteEmoji").forEach((salute) => {
+        salute.addEventListener("click", () => {
+          saluteCount += 1;
+          if (saluteCount >= 10) {
+            const secret = site.querySelector(".secret");
+            const quoteBox = site.querySelector(".quote");
+            if (secret) secret.classList.add("show");
+            if (quoteBox) quoteBox.textContent = "“" + siteData[lang].secret_quote + "”";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
